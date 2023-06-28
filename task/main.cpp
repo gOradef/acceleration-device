@@ -44,7 +44,7 @@ int main() {
 	while (true) {
 		if (FirstConfigurationIsCompleted != 1) 
 		{
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 4; i++) {   //choose what is i need to be | 4 is test num
 				std::cin >> curr_acceler;
 				arr.SetData(curr_acceler);
 			}
@@ -56,11 +56,9 @@ int main() {
 		std::cin >> curr_acceler;
 		arr.RefreshVec(curr_acceler);
 		arr.SetupAvgAcc(FirstConfigurationIsCompleted);
-		std::cout << arr.GetAvgAcc();
-		//arr.SetAndGetAvgAcc(); hernya
+		std::cout << arr.GetAvgAcc() << std::endl;
 
 	}	
 
-	//std::cout << arr.GetEndNum();
 	return 0;
 }
