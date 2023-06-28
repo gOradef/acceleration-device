@@ -39,15 +39,28 @@ int main() {
 		}
 	}
 	std::cout << "Trash is skipped \n";
+	bool FirstConfigurationIsCompleted{ 0 };
 	CompareData arr;
 	while (true) {
-		for (int i = 0; i < 21; i++) {
-			std::cin >> curr_acceler;
-			arr.SetData(curr_acceler);
+		if (FirstConfigurationIsCompleted != 1) 
+		{
+			for (int i = 0; i < 4; i++) {
+				std::cin >> curr_acceler;
+				arr.SetData(curr_acceler);
+			}
+			arr.SetupAvgAcc(FirstConfigurationIsCompleted);
+			FirstConfigurationIsCompleted = 1;
+			std::cout << "FirstConfigurationIsCompleted now \n";
 		}
+		//main method to fill vec by accelerations
+		std::cin >> curr_acceler;
+		arr.RefreshVec(curr_acceler);
+		arr.SetupAvgAcc(FirstConfigurationIsCompleted);
+		std::cout << arr.GetAvgAcc();
+		//arr.SetAndGetAvgAcc(); hernya
 
-	}
+	}	
 
-	//std::cout << arr.GetBeginNum();
+	//std::cout << arr.GetEndNum();
 	return 0;
 }
